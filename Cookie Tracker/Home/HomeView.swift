@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import IntentsUI
 
 class HomeView: UIView {
     
     // MARK: Properties
     private let eatCookieAction: Tap
     private let showMyCookiesAction: Tap
+    private let addToSiriAction: Tap
     
     private let padding: CGFloat = 16
     
@@ -44,11 +46,20 @@ class HomeView: UIView {
         return button
     }()
     
+    lazy var addSiriShortcutsButton: INUIAddVoiceShortcutButton = {
+        let button = INUIAddVoiceShortcutButton(style: .black)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(addToSiritButtonTapped(_:)), for: .touchUpInside)
+        button.shortcut = INShortcut(userActivity: .viewMyCookiesActivity)
+        return button
+    }()
+    
     // MARK: Init
     
-    init(eatCookieAction: @escaping Tap, showMyCookiesAction: @escaping Tap) {
+    init(eatCookieAction: @escaping Tap, showMyCookiesAction: @escaping Tap, addToSiriAction: @escaping Tap) {
         self.eatCookieAction = eatCookieAction
         self.showMyCookiesAction = showMyCookiesAction
+        self.addToSiriAction = addToSiriAction
         super.init(frame: .zero)
         backgroundColor = .systemBackground
         setupLayout()
@@ -67,11 +78,15 @@ class HomeView: UIView {
     @objc private func showMyCookiesButtonTapped(_ sender: UIButton) {
         showMyCookiesAction()
     }
+    
+    @objc private func addToSiritButtonTapped(_ sender: UIButton) {
+        addToSiriAction()
+    }
 
     // MARK: Layout
     
     private func setupLayout() {
-        addSubviews(showMyCookieScreenButton, eatCookieButton)
+        addSubviews(showMyCookieScreenButton, eatCookieButton, addSiriShortcutsButton)
         
         NSLayoutConstraint.activate([
             showMyCookieScreenButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -50),
@@ -82,7 +97,10 @@ class HomeView: UIView {
             eatCookieButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 50),
             eatCookieButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             eatCookieButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
-            eatCookieButton.heightAnchor.constraint(equalToConstant: 50)
+            eatCookieButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            addSiriShortcutsButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding * 2.5),
+            addSiriShortcutsButton.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
     

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Intents
+import IntentsUI
+
 import CookieKit
 
 class HomeViewController: UIViewController {
@@ -37,6 +40,8 @@ class HomeViewController: UIViewController {
             self.eatCookie()
             }, showMyCookiesAction: { [unowned self] in
             self.showMyCookies()
+            }, addToSiriAction: { [unowned self] in
+            self.addSiriShorct()
         })
     }
     
@@ -53,5 +58,26 @@ class HomeViewController: UIViewController {
     private func showMyCookies() {
         navigationController?.pushViewController(CookieViewController(store: store), animated: true)
     }
+    
+    private func addSiriShorct() {
+        let activity = NSUserActivity.viewMyCookiesActivity
+        let shorcut = INShortcut(userActivity: activity)
+        let shorcutViewController = INUIAddVoiceShortcutViewController(shortcut: shorcut)
+        shorcutViewController.delegate = self
+        present(shorcutViewController, animated: true)
+    }
 
+}
+
+extension HomeViewController: INUIAddVoiceShortcutViewControllerDelegate {
+    
+    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+    
+    func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
+        controller.dismiss(animated: true)
+    }
+    
+    
 }
