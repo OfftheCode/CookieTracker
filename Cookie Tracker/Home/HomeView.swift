@@ -1,5 +1,5 @@
 //
-//  CookieView.swift
+//  HomeView.swift
 //  Cookie Tracker
 //
 //  Created by Piotr Szadkowski on 17/09/2020.
@@ -8,22 +8,27 @@
 
 import UIKit
 
-class CookieView: UIView {
+class HomeView: UIView {
     
     // MARK: Properties
     private let eatCookieAction: Tap
+    private let showMyCookiesAction: Tap
     
     private let padding: CGFloat = 16
     
     // MARK: Subviews
     
-    lazy var cookieCounterLabel: UILabel = {
-        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 28)
-        label.textColor = .label
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    lazy var showMyCookieScreenButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Show my Cookies", for: .normal)
+        button.backgroundColor = .systemBlue
+        button.setTitleColor(.white, for: .normal)
+        button.titleEdgeInsets = .init(top: 5, left: 10, bottom: 5, right: 10)
+        button.clipsToBounds = false
+        button.layer.cornerRadius = 15
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(showMyCookiesButtonTapped(_:)), for: .touchUpInside)
+        return button
     }()
     
     lazy var eatCookieButton: UIButton = {
@@ -41,8 +46,9 @@ class CookieView: UIView {
     
     // MARK: Init
     
-    init(eatCookieAction: @escaping Tap) {
+    init(eatCookieAction: @escaping Tap, showMyCookiesAction: @escaping Tap) {
         self.eatCookieAction = eatCookieAction
+        self.showMyCookiesAction = showMyCookiesAction
         super.init(frame: .zero)
         backgroundColor = .systemBackground
         setupLayout()
@@ -57,18 +63,23 @@ class CookieView: UIView {
     @objc private func eatCookieButtonTapped(_ sender: UIButton) {
         eatCookieAction()
     }
+    
+    @objc private func showMyCookiesButtonTapped(_ sender: UIButton) {
+        showMyCookiesAction()
+    }
 
     // MARK: Layout
     
     private func setupLayout() {
-        addSubviews(cookieCounterLabel, eatCookieButton)
+        addSubviews(showMyCookieScreenButton, eatCookieButton)
         
         NSLayoutConstraint.activate([
-            cookieCounterLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            cookieCounterLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            cookieCounterLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            showMyCookieScreenButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -50),
+            showMyCookieScreenButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            showMyCookieScreenButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
+            showMyCookieScreenButton.heightAnchor.constraint(equalToConstant: 50),
             
-            eatCookieButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding * 3),
+            eatCookieButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 50),
             eatCookieButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             eatCookieButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
             eatCookieButton.heightAnchor.constraint(equalToConstant: 50)
