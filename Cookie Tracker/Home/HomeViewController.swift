@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
         view = HomeView(eatCookieAction: { [unowned self] in
             self.eatCookie()
             }, showMyCookiesAction: { [unowned self] in
-            self.showMyCookies()
+            self.viewMyCookies()
             }, addToSiriAction: { [unowned self] in
             self.addSiriShorct()
         })
@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
         store.eatCookie()
     }
     
-    private func showMyCookies() {
+    private func viewMyCookies() {
         navigationController?.pushViewController(CookieViewController(store: store), animated: true)
     }
     
@@ -65,6 +65,14 @@ class HomeViewController: UIViewController {
         let shorcutViewController = INUIAddVoiceShortcutViewController(shortcut: shorcut)
         shorcutViewController.delegate = self
         present(shorcutViewController, animated: true)
+    }
+    
+    override func restoreUserActivityState(_ activity: NSUserActivity) {
+        super.restoreUserActivityState(activity)
+        
+        if activity.activityType == NSUserActivity.viewMyCookiesActivityType {
+            viewMyCookies()
+        }
     }
 
 }

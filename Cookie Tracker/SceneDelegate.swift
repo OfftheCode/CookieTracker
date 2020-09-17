@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CookieKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,6 +22,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = window
         window.makeKeyAndVisible()
+    }
+    
+    func scene(_ scene: UIScene, willContinueUserActivityWithType userActivityType: String) {
+        guard userActivityType == NSUserActivity.viewMyCookiesActivityType else { return }
+        
+        guard let navigation = window?.rootViewController as? UINavigationController, let homeVC = navigation.viewControllers.first as? HomeViewController else { return }
+        
+        homeVC.restoreUserActivityState(NSUserActivity(activityType: NSUserActivity.viewMyCookiesActivityType))
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
