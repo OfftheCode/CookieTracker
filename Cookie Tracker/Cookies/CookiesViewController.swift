@@ -63,7 +63,7 @@ class CookieViewController: UIViewController {
 extension CookieView {
     
     func configure(with cookiesAmount: Int) {
-        cookieCounterLabel.text = String("\(cookiesAmount) 🍪")
+        cookiesSummaryView.configure(withCookiesAmount: cookiesAmount)
     }
     
 }

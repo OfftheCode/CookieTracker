@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CookieKit
 
 class CookieView: UIView {
     
@@ -17,13 +18,10 @@ class CookieView: UIView {
     
     // MARK: Subviews
     
-    lazy var cookieCounterLabel: UILabel = {
-        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 28)
-        label.textColor = .label
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    lazy var cookiesSummaryView: CookiesSummaryView = {
+        let cookiesSummaryView = CookiesSummaryView()
+        cookiesSummaryView.translatesAutoresizingMaskIntoConstraints = false
+        return cookiesSummaryView
     }()
     
     lazy var eatCookieButton: UIButton = {
@@ -61,12 +59,13 @@ class CookieView: UIView {
     // MARK: Layout
     
     private func setupLayout() {
-        addSubviews(cookieCounterLabel, eatCookieButton)
+        addSubviews(cookiesSummaryView, eatCookieButton)
         
         NSLayoutConstraint.activate([
-            cookieCounterLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            cookieCounterLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            cookieCounterLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            cookiesSummaryView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            cookiesSummaryView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            cookiesSummaryView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            cookiesSummaryView.heightAnchor.constraint(equalToConstant: 110),
             
             eatCookieButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding * 3),
             eatCookieButton.centerXAnchor.constraint(equalTo: centerXAnchor),
