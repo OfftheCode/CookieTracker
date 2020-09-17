@@ -9,19 +9,23 @@
 /* Begin PBXBuildFile section */
 		8A2FFB3A2513D8AD008D45C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB392513D8AD008D45C9 /* AppDelegate.swift */; };
 		8A2FFB3C2513D8AD008D45C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB3B2513D8AD008D45C9 /* SceneDelegate.swift */; };
-		8A2FFB3E2513D8AD008D45C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB3D2513D8AD008D45C9 /* ViewController.swift */; };
+		8A2FFB3E2513D8AD008D45C9 /* CookieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB3D2513D8AD008D45C9 /* CookieViewController.swift */; };
 		8A2FFB432513D8B0008D45C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A2FFB422513D8B0008D45C9 /* Assets.xcassets */; };
 		8A2FFB462513D8B0008D45C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2FFB442513D8B0008D45C9 /* LaunchScreen.storyboard */; };
+		8A2FFB4E2513DB04008D45C9 /* CookieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB4D2513DB04008D45C9 /* CookieView.swift */; };
+		8A2FFB502513DB43008D45C9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB4F2513DB43008D45C9 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8A2FFB362513D8AD008D45C9 /* Cookie Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cookie Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2FFB392513D8AD008D45C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A2FFB3B2513D8AD008D45C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8A2FFB3D2513D8AD008D45C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8A2FFB3D2513D8AD008D45C9 /* CookieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieViewController.swift; sourceTree = "<group>"; };
 		8A2FFB422513D8B0008D45C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A2FFB452513D8B0008D45C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A2FFB472513D8B0008D45C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A2FFB4D2513DB04008D45C9 /* CookieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieView.swift; sourceTree = "<group>"; };
+		8A2FFB4F2513DB43008D45C9 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +60,12 @@
 			children = (
 				8A2FFB392513D8AD008D45C9 /* AppDelegate.swift */,
 				8A2FFB3B2513D8AD008D45C9 /* SceneDelegate.swift */,
-				8A2FFB3D2513D8AD008D45C9 /* ViewController.swift */,
+				8A2FFB3D2513D8AD008D45C9 /* CookieViewController.swift */,
 				8A2FFB422513D8B0008D45C9 /* Assets.xcassets */,
 				8A2FFB442513D8B0008D45C9 /* LaunchScreen.storyboard */,
 				8A2FFB472513D8B0008D45C9 /* Info.plist */,
+				8A2FFB4D2513DB04008D45C9 /* CookieView.swift */,
+				8A2FFB4F2513DB43008D45C9 /* Utils.swift */,
 			);
 			path = "Cookie Tracker";
 			sourceTree = "<group>";
@@ -134,7 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A2FFB3E2513D8AD008D45C9 /* ViewController.swift in Sources */,
+				8A2FFB502513DB43008D45C9 /* Utils.swift in Sources */,
+				8A2FFB4E2513DB04008D45C9 /* CookieView.swift in Sources */,
+				8A2FFB3E2513D8AD008D45C9 /* CookieViewController.swift in Sources */,
 				8A2FFB3A2513D8AD008D45C9 /* AppDelegate.swift in Sources */,
 				8A2FFB3C2513D8AD008D45C9 /* SceneDelegate.swift in Sources */,
 			);
