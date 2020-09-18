@@ -11,7 +11,7 @@ import UIKit
 public class ViewMyCookiesIntentHandler: NSObject, ViewMyCookiesIntentHandling {
     
     public func handle(intent: ViewMyCookiesIntent, completion: @escaping (ViewMyCookiesIntentResponse) -> Void) {
-        completion(.init(code: .success, userActivity: nil))
+        completion(.success(amount: String(CookiesStore().cookiesAmount)))
     }
     
     public func confirm(intent: ViewMyCookiesIntent, completion: @escaping (ViewMyCookiesIntentResponse) -> Void) {

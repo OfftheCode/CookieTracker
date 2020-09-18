@@ -22,7 +22,7 @@ public class CookiesSummaryView: UIView {
         let view = UIView()
         view.layer.cornerRadius = 9
         view.layer.masksToBounds = false
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

@@ -21,6 +21,8 @@
 		8A2FFB692514036E008D45C9 /* CookiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB682514036E008D45C9 /* CookiesViewController.swift */; };
 		8A2FFB6B251403C7008D45C9 /* CookieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB6A251403C7008D45C9 /* CookieView.swift */; };
 		8A2FFB6D251404BB008D45C9 /* CookiesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB6C251404BB008D45C9 /* CookiesStore.swift */; };
+		8ABAB56E2514401600BCAA4F /* CookiesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB6C251404BB008D45C9 /* CookiesStore.swift */; };
+		8ABAB5722514405800BCAA4F /* CookiesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB6C251404BB008D45C9 /* CookiesStore.swift */; };
 		8AE7CDF82514329300398955 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE7CDF72514329300398955 /* IntentHandler.swift */; };
 		8AE7CDFF2514329300398955 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFC952D251422820097B6B4 /* IntentsUI.framework */; };
 		8AE7CE022514329300398955 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE7CE012514329300398955 /* IntentViewController.swift */; };
@@ -102,6 +104,8 @@
 		8A2FFB682514036E008D45C9 /* CookiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesViewController.swift; sourceTree = "<group>"; };
 		8A2FFB6A251403C7008D45C9 /* CookieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieView.swift; sourceTree = "<group>"; };
 		8A2FFB6C251404BB008D45C9 /* CookiesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesStore.swift; sourceTree = "<group>"; };
+		8ABAB57F251443E100BCAA4F /* ViewCookies.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ViewCookies.entitlements; sourceTree = "<group>"; };
+		8ABAB583251443EE00BCAA4F /* ViewCookiesUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ViewCookiesUI.entitlements; sourceTree = "<group>"; };
 		8AE7CDF52514329300398955 /* ViewCookies.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ViewCookies.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE7CDF72514329300398955 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		8AE7CDF92514329300398955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 		8AE7CDF62514329300398955 /* ViewCookies */ = {
 			isa = PBXGroup;
 			children = (
+				8ABAB57F251443E100BCAA4F /* ViewCookies.entitlements */,
 				8AE7CDF72514329300398955 /* IntentHandler.swift */,
 				8AE7CDF92514329300398955 /* Info.plist */,
 			);
@@ -241,6 +246,7 @@
 		8AE7CE002514329300398955 /* ViewCookiesUI */ = {
 			isa = PBXGroup;
 			children = (
+				8ABAB583251443EE00BCAA4F /* ViewCookiesUI.entitlements */,
 				8AE7CE012514329300398955 /* IntentViewController.swift */,
 				8AE7CE032514329300398955 /* MainInterface.storyboard */,
 				8AE7CE062514329300398955 /* Info.plist */,
@@ -448,6 +454,7 @@
 				8AFC951C251421AF0097B6B4 /* Intents.intentdefinition in Sources */,
 				8A2FFB652513FEEA008D45C9 /* NSUserActiviy+IntentData.swift in Sources */,
 				8AFC9594251427970097B6B4 /* ViewMyCookiesIntentHandler.swift in Sources */,
+				8ABAB5722514405800BCAA4F /* CookiesStore.swift in Sources */,
 				8AFC951A25140B9A0097B6B4 /* CookiesSummaryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE7CE2C251438FC00398955 /* Intents.intentdefinition in Sources */,
+				8ABAB56E2514401600BCAA4F /* CookiesStore.swift in Sources */,
 				8AE7CE022514329300398955 /* IntentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -729,6 +737,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = ViewCookiesUI/ViewCookiesUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BGU6TY568;
 				INFOPLIST_FILE = ViewCookiesUI/Info.plist;
@@ -750,6 +759,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = ViewCookiesUI/ViewCookiesUI.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BGU6TY568;
@@ -772,6 +782,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = ViewCookies/ViewCookies.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BGU6TY568;
 				INFOPLIST_FILE = ViewCookies/Info.plist;
@@ -793,6 +804,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = ViewCookies/ViewCookies.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BGU6TY568;

@@ -25,7 +25,7 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
     
     func configureView(for parameters: Set<INParameter>, of interaction: INInteraction, interactiveBehavior: INUIInteractiveBehavior, context: INUIHostedViewContext, completion: @escaping (Bool, Set<INParameter>, CGSize) -> Void) {
         
-        guard interaction.intentHandlingStatus == .success, interaction.intentResponse as? ViewMyCookiesIntentResponse != nil else {
+        guard interaction.intentHandlingStatus == .success, let response = interaction.intentResponse as? ViewMyCookiesIntentResponse else {
             completion(false, parameters, self.desiredSize)
             return
         }
@@ -38,6 +38,9 @@ class IntentViewController: UIViewController, INUIHostedViewControlling {
             cookiesSummaryView.topAnchor.constraint(equalTo: view.topAnchor),
             cookiesSummaryView.heightAnchor.constraint(equalToConstant: CookiesSummaryView.suggestedHeight)
         ])
+        
+        let amount = Int(response.amount ?? "0") ?? 0
+        cookiesSummaryView.configure(withCookiesAmount: amount)
         
         cookiesSummaryView.setNeedsLayout()
         cookiesSummaryView.layoutIfNeeded()

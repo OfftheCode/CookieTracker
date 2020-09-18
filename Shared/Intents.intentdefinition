@@ -54,8 +54,12 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>You have ${amount} cookies left!</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>jCEC7G</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Alle went fine</string>
+						<string>You have ${amount} cookies left!</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>7OGc4m</string>
 						<key>INIntentResponseCodeName</key>
@@ -64,12 +68,35 @@
 						<true/>
 					</dict>
 					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>Something went wrong, we are sorry</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>unE2GJ</string>
 						<key>INIntentResponseCodeFormatString</key>
 						<string>Something went wrong, we are sorry</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>dALXHq</string>
 						<key>INIntentResponseCodeName</key>
 						<string>failure</string>
+					</dict>
+				</array>
+				<key>INIntentResponseLastParameterTag</key>
+				<integer>3</integer>
+				<key>INIntentResponseParameters</key>
+				<array>
+					<dict>
+						<key>INIntentResponseParameterDisplayName</key>
+						<string>Amount</string>
+						<key>INIntentResponseParameterDisplayNameID</key>
+						<string>RpeqLk</string>
+						<key>INIntentResponseParameterDisplayPriority</key>
+						<integer>1</integer>
+						<key>INIntentResponseParameterName</key>
+						<string>amount</string>
+						<key>INIntentResponseParameterTag</key>
+						<integer>3</integer>
+						<key>INIntentResponseParameterType</key>
+						<string>String</string>
 					</dict>
 				</array>
 			</dict>
