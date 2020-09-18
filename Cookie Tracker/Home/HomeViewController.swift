@@ -17,6 +17,11 @@ class HomeViewController: UIViewController {
     // MARK: Properties
     
     private let store: CookiesStorable
+    private let shorcut: INShortcut? = {
+        let intent = ViewMyCookiesIntent()
+        intent.suggestedInvocationPhrase = "View my Cookies"
+        return INShortcut(intent: intent)
+    }()
     
     // MARK: Subviews
     
@@ -43,6 +48,7 @@ class HomeViewController: UIViewController {
             }, addToSiriAction: { [unowned self] in
             self.addSiriShorct()
         })
+        homeView.shorcut = shorcut
     }
     
     override func viewDidLoad() {
@@ -60,8 +66,7 @@ class HomeViewController: UIViewController {
     }
     
     private func addSiriShorct() {
-        let activity = NSUserActivity.viewMyCookiesActivity
-        let shorcut = INShortcut(userActivity: activity)
+        guard let shorcut = shorcut else { return }
         let shorcutViewController = INUIAddVoiceShortcutViewController(shortcut: shorcut)
         shorcutViewController.delegate = self
         present(shorcutViewController, animated: true)

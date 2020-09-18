@@ -10,6 +10,10 @@ import UIKit
 
 public class CookiesSummaryView: UIView {
     
+    // MARK: Properties
+    
+    public static let suggestedHeight: CGFloat = 111
+    
     // MARK: Subviews & Layers
     
     private var shadowLayer: CAShapeLayer!
@@ -113,7 +117,7 @@ public class CookiesSummaryView: UIView {
             cookieBackgroundView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             cookieBackgroundView.topAnchor.constraint(equalTo: containerView.topAnchor),
             cookieBackgroundView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            cookieBackgroundView.widthAnchor.constraint(equalToConstant: 111),
+            cookieBackgroundView.widthAnchor.constraint(equalToConstant: Self.suggestedHeight),
 
             cookieIcon.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             cookieIcon.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -36)

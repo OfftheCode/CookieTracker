@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Intents
 import IntentsUI
 
 class HomeView: UIView {
@@ -15,6 +16,13 @@ class HomeView: UIView {
     private let eatCookieAction: Tap
     private let showMyCookiesAction: Tap
     private let addToSiriAction: Tap
+    
+    var shorcut: INShortcut? {
+        didSet {
+            guard let shorcut = shorcut else { return }
+            addSiriShortcutsButton.shortcut = shorcut
+        }
+    }
     
     private let padding: CGFloat = 16
     
@@ -50,7 +58,6 @@ class HomeView: UIView {
         let button = INUIAddVoiceShortcutButton(style: .black)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(addToSiritButtonTapped(_:)), for: .touchUpInside)
-        button.shortcut = INShortcut(userActivity: .viewMyCookiesActivity)
         return button
     }()
     
