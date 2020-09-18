@@ -17,9 +17,16 @@ class HomeViewController: UIViewController {
     // MARK: Properties
     
     private let store: CookiesStorable
-    private let shorcut: INShortcut? = {
+    
+    private let viewCookiesShorcut: INShortcut? = {
         let intent = ViewMyCookiesIntent()
         intent.suggestedInvocationPhrase = "View my Cookies"
+        return INShortcut(intent: intent)
+    }()
+    
+    private let eatCookieShorcut: INShortcut? = {
+        let intent = AddCookieIntent()
+        intent.suggestedInvocationPhrase = "Add a Cookie"
         return INShortcut(intent: intent)
     }()
     
@@ -43,12 +50,16 @@ class HomeViewController: UIViewController {
     override func loadView() {
         view = HomeView(eatCookieAction: { [unowned self] in
             self.eatCookie()
-            }, showMyCookiesAction: { [unowned self] in
+        }, showMyCookiesAction: { [unowned self] in
             self.viewMyCookies()
-            }, addToSiriAction: { [unowned self] in
-            self.addSiriShorct()
+        }, addViewMyCookiesToSiriAction: { [unowned self] in
+            self.addShowCookiesSiriShorcut()
+        }, addEatCookieToSiriAction: { [unowned self] in
+            self.addEatCookieSiriShorcut()
         })
-        homeView.shorcut = shorcut
+        
+        homeView.viewCookiesShortcut = viewCookiesShorcut
+        homeView.eatCookieShortcut = eatCookieShorcut
     }
     
     override func viewDidLoad() {
@@ -65,11 +76,18 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(CookieViewController(store: store), animated: true)
     }
     
-    private func addSiriShorct() {
-        guard let shorcut = shorcut else { return }
-        let shorcutViewController = INUIAddVoiceShortcutViewController(shortcut: shorcut)
-        shorcutViewController.delegate = self
-        present(shorcutViewController, animated: true)
+    private func addShowCookiesSiriShorcut() {
+        guard let shorcut = viewCookiesShorcut else { return }
+        let shortcutViewController = INUIAddVoiceShortcutViewController(shortcut: shorcut)
+        shortcutViewController.delegate = self
+        present(shortcutViewController, animated: true)
+    }
+    
+    private func addEatCookieSiriShorcut() {
+        guard let shorcut = eatCookieShorcut else { return }
+        let shortcutViewController = INUIAddVoiceShortcutViewController(shortcut: shorcut)
+        shortcutViewController.delegate = self
+        present(shortcutViewController, animated: true)
     }
     
     override func restoreUserActivityState(_ activity: NSUserActivity) {

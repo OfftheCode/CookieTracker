@@ -133,6 +133,11 @@ public extension CookiesSummaryView {
         cookiesLabel.text = "\(cookiesAmount) Cookies"
     }
     
+    func configure(withTitle title: String, andCookiesAmount cookiesAmount: Int) {
+        youHaveLabel.text = title
+        configure(withCookiesAmount: cookiesAmount)
+    }
+    
 }
 
 extension UIView {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A2A692E251450F9003C2DDA /* CreateCookieIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2A692D251450F9003C2DDA /* CreateCookieIntentHandler.swift */; };
+		8A2A696025145482003C2DDA /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE7CDF72514329300398955 /* IntentHandler.swift */; };
 		8A2FFB3A2513D8AD008D45C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB392513D8AD008D45C9 /* AppDelegate.swift */; };
 		8A2FFB3C2513D8AD008D45C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB3B2513D8AD008D45C9 /* SceneDelegate.swift */; };
 		8A2FFB3E2513D8AD008D45C9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB3D2513D8AD008D45C9 /* HomeViewController.swift */; };
@@ -23,7 +25,7 @@
 		8A2FFB6D251404BB008D45C9 /* CookiesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB6C251404BB008D45C9 /* CookiesStore.swift */; };
 		8ABAB56E2514401600BCAA4F /* CookiesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB6C251404BB008D45C9 /* CookiesStore.swift */; };
 		8ABAB5722514405800BCAA4F /* CookiesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB6C251404BB008D45C9 /* CookiesStore.swift */; };
-		8AE7CDF82514329300398955 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE7CDF72514329300398955 /* IntentHandler.swift */; };
+		8ABAB5C025144D7D00BCAA4F /* CookiesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FFB6C251404BB008D45C9 /* CookiesStore.swift */; };
 		8AE7CDFF2514329300398955 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFC952D251422820097B6B4 /* IntentsUI.framework */; };
 		8AE7CE022514329300398955 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE7CE012514329300398955 /* IntentViewController.swift */; };
 		8AE7CE052514329300398955 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE7CE032514329300398955 /* MainInterface.storyboard */; };
@@ -88,6 +90,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8A2A692D251450F9003C2DDA /* CreateCookieIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCookieIntentHandler.swift; sourceTree = "<group>"; };
 		8A2FFB362513D8AD008D45C9 /* Cookie Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cookie Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2FFB392513D8AD008D45C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A2FFB3B2513D8AD008D45C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +205,7 @@
 				8AFC951825140B930097B6B4 /* CookiesSummaryView.swift */,
 				8AFC951B251421AF0097B6B4 /* Intents.intentdefinition */,
 				8AFC9592251427900097B6B4 /* ViewMyCookiesIntentHandler.swift */,
+				8A2A692D251450F9003C2DDA /* CreateCookieIntentHandler.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -452,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AFC951C251421AF0097B6B4 /* Intents.intentdefinition in Sources */,
+				8A2A692E251450F9003C2DDA /* CreateCookieIntentHandler.swift in Sources */,
 				8A2FFB652513FEEA008D45C9 /* NSUserActiviy+IntentData.swift in Sources */,
 				8AFC9594251427970097B6B4 /* ViewMyCookiesIntentHandler.swift in Sources */,
 				8ABAB5722514405800BCAA4F /* CookiesStore.swift in Sources */,
@@ -464,7 +469,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE7CE28251438FC00398955 /* Intents.intentdefinition in Sources */,
-				8AE7CDF82514329300398955 /* IntentHandler.swift in Sources */,
+				8A2A696025145482003C2DDA /* IntentHandler.swift in Sources */,
+				8ABAB5C025144D7D00BCAA4F /* CookiesStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +574,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INTENTS_CODEGEN_LANGUAGE = Automatic;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -622,6 +629,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INTENTS_CODEGEN_LANGUAGE = Automatic;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -642,6 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BGU6TY568;
 				INFOPLIST_FILE = "Cookie Tracker/Info.plist";
+				INTENTS_CODEGEN_LANGUAGE = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -664,6 +673,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BGU6TY568;
 				INFOPLIST_FILE = "Cookie Tracker/Info.plist";
+				INTENTS_CODEGEN_LANGUAGE = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -689,6 +699,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CookieKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INTENTS_CODEGEN_LANGUAGE = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -718,6 +729,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CookieKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INTENTS_CODEGEN_LANGUAGE = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -741,6 +753,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BGU6TY568;
 				INFOPLIST_FILE = ViewCookiesUI/Info.plist;
+				INTENTS_CODEGEN_LANGUAGE = Automatic;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -764,6 +777,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BGU6TY568;
 				INFOPLIST_FILE = ViewCookiesUI/Info.plist;
+				INTENTS_CODEGEN_LANGUAGE = Automatic;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -786,6 +800,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BGU6TY568;
 				INFOPLIST_FILE = ViewCookies/Info.plist;
+				INTENTS_CODEGEN_LANGUAGE = Automatic;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -809,6 +824,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2BGU6TY568;
 				INFOPLIST_FILE = ViewCookies/Info.plist;
+				INTENTS_CODEGEN_LANGUAGE = Automatic;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

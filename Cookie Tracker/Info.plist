@@ -22,6 +22,7 @@
 	<true/>
 	<key>NSUserActivityTypes</key>
 	<array>
+		<string>AddCookieIntent</string>
 		<string>ViewMyCookiesIntent</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>

@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8AFC957A251427360097B6B4"
+               BlueprintIdentifier = "8AE7CDFD2514329300398955"
                BuildableName = "ViewCookiesUI.appex"
                BlueprintName = "ViewCookiesUI"
                ReferencedContainer = "container:Cookie Tracker.xcodeproj">
@@ -47,7 +47,7 @@
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
-      intentQueryString = "View my Cookies"
+      intentQueryString = "Add a Cookie"
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
@@ -71,7 +71,7 @@
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
-      intentQueryString = "View my Cookies"
+      intentQueryString = "Add a Cookie"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"

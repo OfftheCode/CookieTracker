@@ -43,6 +43,11 @@ class CookieViewController: UIViewController {
         cookieView.configure(with: store.cookiesAmount)
         connectWithStore()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.cookieView.configure(with: store.cookiesAmount)
+    }
 
     // MARK: State Updates
 

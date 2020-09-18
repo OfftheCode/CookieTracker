@@ -11,6 +11,7 @@ import Foundation
 protocol CookiesStorable: class {
     var cookiesAmount: Int { get }
     func eatCookie()
+    func add(cookies amount: Int)
     
     var cookiesAmountDidChange: ((Int) -> Void)? { get set }
 }
@@ -18,25 +19,33 @@ protocol CookiesStorable: class {
 public class CookiesStore: NSObject, CookiesStorable {
     
     public static let MIN_COOKIES_AMOUNT = 0
-    public static let MAX_COOKIES_AMOUNT = 10
+    public static let MAX_COOKIES_AMOUNT = 15
     
     private let defaults: UserDefaults
     
-    private(set) var cookiesAmount: Int {
+    var cookiesAmount: Int {
+        defaults.getCookiesAmount()
+    }
+    
+    private var _cookiesAmount: Int {
         didSet {
-            guard Self.MIN_COOKIES_AMOUNT...Self.MAX_COOKIES_AMOUNT ~= cookiesAmount else { cookiesAmount = oldValue; return }
-            defaults.setCookiesAmount(to: cookiesAmount)
+            guard Self.MIN_COOKIES_AMOUNT...Self.MAX_COOKIES_AMOUNT ~= cookiesAmount else { _cookiesAmount = oldValue; return }
+            defaults.setCookiesAmount(to: _cookiesAmount)
             cookiesAmountDidChange?(cookiesAmount)
         }
     }
     
     public init(defaults: UserDefaults = UserDefaults(suiteName: "group.com.infullmobile.cookietracker") ?? .standard) {
         self.defaults = defaults
-        cookiesAmount = defaults.getCookiesAmount()
+        _cookiesAmount = defaults.getCookiesAmount()
     }
     
     public func eatCookie() {
-        cookiesAmount -= 1
+        _cookiesAmount -= 1
+    }
+    
+    public func add(cookies amount: Int) {
+        _cookiesAmount += amount
     }
     
     /// Runs when cookies amount did change won't be trigger if tried to set same value twice
@@ -50,7 +59,7 @@ private extension UserDefaults {
         if let value = value(forKey: .kCookiesAmount) as? Int {
             return value
         } else {
-            return CookiesStore.MAX_COOKIES_AMOUNT
+            return CookiesStore.MAX_COOKIES_AMOUNT / 2
         }
     }
     

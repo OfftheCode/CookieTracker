@@ -12,10 +12,15 @@ import CookieKit
 class IntentHandler: INExtension, INSendMessageIntentHandling, INSearchForMessagesIntentHandling, INSetMessageAttributeIntentHandling {
     
     override func handler(for intent: INIntent) -> Any {
+        switch intent {
+        case is ViewMyCookiesIntent:
+            return ViewMyCookiesIntentHandler()
+        case is AddCookieIntent:
+            return CreateCookieIntentHandler()
+        default:
+            fatalError("Intent not handled")
+        }
         
-        guard intent is ViewMyCookiesIntent else { fatalError("Unhandeled intent!") }
-        
-        return ViewMyCookiesIntentHandler()
     }
     
     // MARK: - INSendMessageIntentHandling

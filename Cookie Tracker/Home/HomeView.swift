@@ -15,12 +15,21 @@ class HomeView: UIView {
     // MARK: Properties
     private let eatCookieAction: Tap
     private let showMyCookiesAction: Tap
-    private let addToSiriAction: Tap
     
-    var shorcut: INShortcut? {
+    private let addViewMyCookiesToSiriAction: Tap
+    private let addEatCookieToSiriAction: Tap
+    
+    var viewCookiesShortcut: INShortcut? {
         didSet {
-            guard let shorcut = shorcut else { return }
-            addSiriShortcutsButton.shortcut = shorcut
+            guard let shorcut = viewCookiesShortcut else { return }
+            addViewMyCookiesSiriShortcutsButton.shortcut = shorcut
+        }
+    }
+    
+    var eatCookieShortcut: INShortcut? {
+        didSet {
+            guard let shorcut = eatCookieShortcut else { return }
+            addEatCookieSiriShorcutsButton.shortcut = shorcut
         }
     }
     
@@ -54,19 +63,28 @@ class HomeView: UIView {
         return button
     }()
     
-    lazy var addSiriShortcutsButton: INUIAddVoiceShortcutButton = {
+    lazy var addViewMyCookiesSiriShortcutsButton: INUIAddVoiceShortcutButton = {
         let button = INUIAddVoiceShortcutButton(style: .black)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(addToSiritButtonTapped(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(addShowMyCookiesToSiriButtonTapped(_:)), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var addEatCookieSiriShorcutsButton: INUIAddVoiceShortcutButton = {
+        let button = INUIAddVoiceShortcutButton(style: .black)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(addEatCookieToSiriButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
     
     // MARK: Init
     
-    init(eatCookieAction: @escaping Tap, showMyCookiesAction: @escaping Tap, addToSiriAction: @escaping Tap) {
+    init(eatCookieAction: @escaping Tap, showMyCookiesAction: @escaping Tap,
+         addViewMyCookiesToSiriAction: @escaping Tap, addEatCookieToSiriAction: @escaping Tap) {
         self.eatCookieAction = eatCookieAction
         self.showMyCookiesAction = showMyCookiesAction
-        self.addToSiriAction = addToSiriAction
+        self.addViewMyCookiesToSiriAction = addViewMyCookiesToSiriAction
+        self.addEatCookieToSiriAction = addEatCookieToSiriAction
         super.init(frame: .zero)
         backgroundColor = .systemBackground
         setupLayout()
@@ -86,14 +104,18 @@ class HomeView: UIView {
         showMyCookiesAction()
     }
     
-    @objc private func addToSiritButtonTapped(_ sender: UIButton) {
-        addToSiriAction()
+    @objc private func addShowMyCookiesToSiriButtonTapped(_ sender: UIButton) {
+        addViewMyCookiesToSiriAction()
+    }
+    
+    @objc private func addEatCookieToSiriButtonTapped(_ sender: UIButton) {
+        addEatCookieToSiriAction()
     }
 
     // MARK: Layout
     
     private func setupLayout() {
-        addSubviews(showMyCookieScreenButton, eatCookieButton, addSiriShortcutsButton)
+        addSubviews(showMyCookieScreenButton, eatCookieButton, addViewMyCookiesSiriShortcutsButton, addEatCookieSiriShorcutsButton)
         
         NSLayoutConstraint.activate([
             showMyCookieScreenButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -50),
@@ -106,8 +128,11 @@ class HomeView: UIView {
             eatCookieButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
             eatCookieButton.heightAnchor.constraint(equalToConstant: 50),
             
-            addSiriShortcutsButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding * 2.5),
-            addSiriShortcutsButton.centerXAnchor.constraint(equalTo: centerXAnchor)
+            addViewMyCookiesSiriShortcutsButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding * 2.5),
+            addViewMyCookiesSiriShortcutsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            
+            addEatCookieSiriShorcutsButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding * 2.5),
+            addEatCookieSiriShorcutsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding)
         ])
     }
     
